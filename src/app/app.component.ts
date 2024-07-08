@@ -1,26 +1,12 @@
 import { Component, viewChild } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
+import { MatAccordion } from '@angular/material/expansion';
 import { RouterOutlet } from '@angular/router';
+import { PageLoadingBarComponent } from '../../projects/components/src';
 
 @Component({
 	selector: 'app-root',
 	standalone: true,
-	imports: [
-		RouterOutlet,
-		MatButtonModule,
-		MatIconModule,
-		MatDividerModule,
-		MatExpansionModule,
-		MatFormFieldModule,
-		MatDatepickerModule,
-		MatMenuModule,
-	],
+	imports: [RouterOutlet, PageLoadingBarComponent],
 	templateUrl: './app.component.html',
 	styleUrl: './app.component.scss',
 })

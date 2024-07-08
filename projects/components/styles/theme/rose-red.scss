@@ -38,7 +38,7 @@ $m3-dark-theme: mat.define-theme(
 );
 
 @import '_common';
-// @import '_components';
+@import '_components';
 
 @tailwind base;
 @tailwind components;

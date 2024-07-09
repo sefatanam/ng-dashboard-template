@@ -1,0 +1,115 @@
+:host {
+	position: relative;
+
+	.inner {
+		display: flex;
+		align-items: center;
+		min-width: 0;
+		white-space: nowrap;
+		flex: none;
+		cursor: pointer;
+		user-select: none;
+		margin: 0;
+		width: var(--navigation-item-width);
+		background-color: var(--navigation-item-bg);
+		min-height: var(--navigation-item-height);
+		padding: var(--navigation-item-padding);
+		font-size: var(--navigation-item-font-size);
+		border-radius: var(--navigation-item-border-radius);
+		font-weight: var(--navigation-item-font-weight);
+		color: var(--navigation-item-color);
+		gap: var(--navigation-item-gap);
+		border: var(--navigation-item-border-width) solid var(--navigation-item-border-color);
+		transition: all 0.2s;
+	}
+}
+
+:host-context(.navigation-group-menu) {
+	.inner {
+		margin: var(--navigation-nested-item-margin);
+		width: clac(var(--navigation-item-width) - var(--navigation-nested-item-margin));
+		background-color: var(--navigation-nested-item-bg);
+		min-height: var(--navigation-nested-item-height);
+		padding: var(--navigation-nested-item-padding);
+		color: var(--navigation-nested-item-color);
+	}
+
+	&:hover .inner {
+		background-color: var(--navigation-nested-item-hover-bg);
+		color: var(--navigation-nested-item-hover-color);
+	}
+
+	&.is-active .inner,
+	&.is-active:hover .inner {
+		background-color: var(--navigation-nested-item-active-bg);
+		color: var(--navigation-nested-item-active-color);
+	}
+
+	&:not(:last-child) {
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 20px;
+			bottom: -10px;
+			width: 1px;
+			background: var(--navigation-group-tree-lines-color);
+			z-index: 0;
+		}
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 20px;
+		width: calc(var(--navigation-nested-item-height) / 1.5);
+		height: calc(var(--navigation-nested-item-height) / 2);
+		border-bottom-left-radius: calc(var(--navigation-nested-item-height) / 4);
+		border-left: 1px solid var(--navigation-group-tree-lines-color);
+		border-bottom: 1px solid var(--navigation-group-tree-lines-color);
+	}
+}
+
+:host(:hover) {
+	.inner {
+		background-color: var(--navigation-item-hover-bg);
+		color: var(--navigation-item-hover-color);
+	}
+}
+
+:host(.is-active),
+:host(.is-active:hover) {
+	.inner {
+		background-color: var(--navigation-item-active-bg);
+		color: var(--navigation-item-active-color);
+	}
+}
+
+:host {
+	.icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: var(--navigation-item-icon-width);
+		color: var(--navigation-item-icon-color);
+	}
+}
+
+:host:not(.is-active):hover {
+	.icon {
+		color: var(--navigation-item-hover-icon-color);
+	}
+}
+
+:host(.is-active) {
+	.icon {
+		color: var(--navigation-item-active-icon-color);
+	}
+}
+
+:host {
+	.icon:empty {
+		display: none;
+	}
+}

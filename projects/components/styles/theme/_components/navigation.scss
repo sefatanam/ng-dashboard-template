@@ -1,0 +1,122 @@
+:root {
+  --navigation-bg: inherit;
+  --navigation-items-gap: theme("gap[0.5]");
+  --navigation-item-width: 100%;
+  --navigation-item-bg: theme("colors.transparent");
+  --navigation-item-height: theme("height.12");
+  --navigation-item-padding: 0 theme("padding.4");
+  --navigation-item-font-size: theme("fontSize.sm");
+  --navigation-item-border-radius: theme("borderRadius.lg");
+  --navigation-item-border-width: 1px;
+  --navigation-item-border-color: theme("colors.transparent");
+  --navigation-item-font-weight: theme("fontWeight.medium");
+  --navigation-item-color: theme("textColor.secondary.600");
+  --navigation-item-hover-bg: theme("colors.neutral.200");
+  --navigation-item-active-bg: theme("colors.neutral.300");
+  --navigation-item-hover-color: theme("colors.secondary.800");
+  --navigation-item-active-color: theme("colors.secondary.950");
+  --navigation-item-icon-font-size: theme("fontSize.2xl");
+  --navigation-item-icon-color: theme("colors.secondary.700");
+  --navigation-item-icon-width: 1.5625rem; // 25px
+  --navigation-item-hover-icon-color: theme("colors.secondary.800");
+  --navigation-item-active-icon-color: theme("colors.secondary.950");
+  --navigation-item-icon-size: theme("width.6");
+  --navigation-item-gap: theme("gap.3");
+  --navigation-item-has-icon-padding-start: theme("padding[2.5]");
+  --navigation-heading-color: theme("colors.neutral.900");
+  --navigation-heading-font-size: theme("fontSize.2xs");
+  --navigation-heading-font-weight: theme("fontWeight.bold");
+  --navigation-heading-padding: 0 theme("padding.4");
+  --navigation-heading-margin-bottom: theme("spacing.3");
+  --navigation-heading-after-margin: theme("spacing.8");
+  --navigation-heading-text-transform: uppercase;
+  --navigation-divider-height: theme("height.px");
+  --navigation-divider-bg: theme("colors.neutral.200");
+  --navigation-divider-margin: theme("margin.6") 0;
+  --navigation-group-toggle-has-icon-padding-end: theme("padding.2");
+  --navigation-group-toggle-icon-color: theme("colors.neutral.400");
+  --navigation-group-toggle-icon-position-end: theme("spacing.3");
+  --navigation-group-toggle-icon-size: theme("width.4");
+  --navigation-group-menu-padding-start: 0;
+  --navigation-nested-item-bg: theme("colors.transparent");
+  --navigation-nested-item-height: theme("height.10");
+  --navigation-nested-item-padding: 0 theme("padding.3");
+  --navigation-nested-item-margin: 0 0 0 52px;
+  --navigation-nested-item-border-radius: 0;
+  --navigation-nested-item-color: theme("textColor.secondary.600");
+  --navigation-nested-item-hover-bg: theme("colors.neutral.200");
+  --navigation-nested-item-active-bg: theme("colors.surface-container");
+  --navigation-nested-item-hover-color: theme("textColor.secondary.800");
+  --navigation-nested-item-active-color: theme("colors.secondary.950");
+  --navigation-nested-item-indicator-width: theme("width[3.5]");
+  --navigation-nested-item-indicator-height: theme("height[0.5]");
+  --navigation-nested-item-indicator-bg: theme("colors.neutral.500");
+  --navigation-nested-item-indicator-position-start: calc(
+    theme("spacing[2.5]") * -1
+  );
+  --navigation-group-active-bg: transparent;
+  --navigation-group-border-radius: 0;
+  --navigation-group-tree-lines-color: theme("borderColor.DEFAULT");
+}
+
+.navigation > * + .navigation-heading {
+  margin-top: var(--navigation-heading-after-margin);
+}
+
+.navigation-group-toggle-icon {
+  @apply transition;
+}
+
+.navigation[data-theme="secondary"] {
+  --navigation-item-border-radius: theme("borderRadius.full");
+  --navigation-item-height: theme("height.11");
+  --navigation-item-active-bg: theme("colors.background");
+
+  .navigation-item.is-active {
+    --navigation-item-border-color: theme("colors.neutral.900");
+  }
+}
+
+.navigation[theme="simple"] {
+  --navigation-item-height: theme("height.11");
+  --navigation-items-gap: theme("gap.0");
+  --navigation-item-hover-bg: none;
+  --navigation-item-active-bg: none;
+  --navigation-nested-item-height: theme("height.11");
+  --navigation-nested-item-hover-bg: none;
+  --navigation-nested-item-active-bg: none;
+  --navigation-item-color: theme("textColor.secondary.500");
+  --navigation-nested-item-color: theme("textColor.secondary.500");
+  --navigation-item-icon-color: theme("colors.secondary.600");
+}
+
+html.dark {
+  --navigation-item-color: theme("colors.neutral.300");
+  --navigation-item-icon-color: theme("colors.neutral.400");
+  --navigation-item-hover-bg: #{rgba(#fff, 0.2)};
+  --navigation-item-active-bg: #{rgba(#fff, 0.2)};
+  --navigation-item-hover-color: theme("colors.neutral.100");
+  --navigation-item-hover-icon-color: theme("colors.neutral.100");
+  --navigation-item-active-color: theme("colors.neutral.100");
+  --navigation-item-active-icon-color: theme("colors.neutral.100");
+  --navigation-heading-color: theme("colors.neutral.200");
+  --navigation-nested-item-color: theme("textColor.neutral.300");
+  --navigation-nested-item-active-color: theme("colors.neutral.100");
+  --navigation-nested-item-hover-bg: #{rgba(#fff, 0.1)};
+  --navigation-nested-item-active-bg: #{rgba(#fff, 0.1)};
+  --navigation-nested-item-hover-color: theme("colors.neutral.100");
+  --navigation-divider-bg: theme("borderColor.inverse");
+  --navigation-group-tree-lines-color: theme("borderColor.inverse");
+
+  .navigation[data-theme="secondary"] {
+    .navigation-item.is-active {
+      --navigation-item-border-color: theme("colors.neutral.400");
+    }
+  }
+
+  .navigation[theme="simple"] {
+    --navigation-item-color: theme("textColor.neutral.500");
+    --navigation-nested-item-color: theme("textColor.neutral.500");
+    --navigation-item-icon-color: theme("colors.neutral.300");
+  }
+}

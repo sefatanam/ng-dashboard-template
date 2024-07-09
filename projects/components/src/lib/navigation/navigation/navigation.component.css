@@ -1,0 +1,6 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	gap: var(--navigation-items-gap);
+	background: var(--navigation-bg);
+}

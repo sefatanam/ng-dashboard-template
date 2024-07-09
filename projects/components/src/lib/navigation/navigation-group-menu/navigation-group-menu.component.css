@@ -1,0 +1,13 @@
+:host {
+  padding-inline-start: var(--navigation-group-menu-padding-start);
+  margin-top: var(--navigation-item-space-y);
+  display: none;
+}
+
+:host(.is-active) {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: var(--navigation-items-gap);
+  padding: calc(var(--navigation-items-gap) * 2) 0;
+}

@@ -1,0 +1,7 @@
+<div class="inner" matRipple>
+	<div class="icon">
+		<ng-content select="[libNavigationItemIcon]"></ng-content>
+		<ng-container [ngTemplateOutlet]="iconRef.templateRef" *ngIf="iconRef"></ng-container>
+	</div>
+	<ng-content></ng-content>
+</div>

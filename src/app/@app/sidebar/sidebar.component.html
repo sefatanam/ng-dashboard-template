@@ -1,1 +1,52 @@
-<p>sidebar works!</p>
+<div class="inner">
+	<div class="header h-16">
+		<a routerLink="/" class="font-bold text-lg px-7 logo">ELEMENTAR</a>
+		<!--  <div class="p-4">-->
+		<!--    <img src="assets/logo.svg" alt="" class="h-10">-->
+		<!--  </div>-->
+	</div>
+	<div class="body">
+		<lib-navigation #navigation [activeKey]="activeLinkId" class="navigation">
+			@for (navItem of navItems; track navItem) {
+				@switch (navItem.type) {
+					@case ('heading') {
+						<lib-navigation-heading>{{ navItem.name }}</lib-navigation-heading>
+					}
+					@case ('group') {
+						<lib-navigation-group>
+							<lib-navigation-group-toggle [for]="navItem.id">
+								@if (navItem.icon) {
+									<mat-icon libNavigationItemIcon>{{ navItem.icon }}</mat-icon>
+								}
+								{{ navItem.name }}
+								<mat-icon libNavigationGroupToggleIcon>arrow_drop_down</mat-icon>
+							</lib-navigation-group-toggle>
+							<lib-navigation-group-menu [key]="navItem.id">
+								@for (childItem of navItem.children | orderBy: 'name'; track childItem) {
+									<a lib-navigation-item [routerLink]="childItem.link" [key]="childItem.link">
+										{{ childItem.name }}
+									</a>
+								}
+							</lib-navigation-group-menu>
+						</lib-navigation-group>
+					}
+					@default {
+						<a lib-navigation-item [routerLink]="navItem.link" [key]="navItem.link">
+							@if (navItem.icon) {
+								<mat-icon libNavigationItemIcon>{{ navItem.icon }}</mat-icon>
+							}
+							{{ navItem.name }}
+						</a>
+					}
+				}
+			}
+		</lib-navigation>
+	</div>
+	<div class="footer p-7">
+		<!--  <app-sidebar-go-to-premium></app-sidebar-go-to-premium>-->
+		<!--  <app-sidebar-upgrade-to-pro></app-sidebar-upgrade-to-pro>-->
+		<!--  <app-sidebar-upgrade-now></app-sidebar-upgrade-now>-->
+		<!--    <app-used-space></app-used-space>-->
+		<app-toolbar></app-toolbar>
+	</div>
+</div>

@@ -1,0 +1,75 @@
+:host {
+	display: flex;
+	align-items: center;
+	min-width: 0;
+	white-space: nowrap;
+	position: relative;
+	flex: none;
+	cursor: pointer;
+	user-select: none;
+	background-color: var(--navigation-item-bg);
+	min-height: var(--navigation-item-height);
+	padding: var(--navigation-item-padding);
+	font-size: var(--navigation-item-font-size);
+	border-radius: var(--navigation-item-border-radius);
+	font-weight: var(--navigation-item-font-weight);
+	color: var(--navigation-item-color);
+	gap: var(--navigation-item-gap);
+}
+
+:host(:hover) {
+	background-color: var(--navigation-item-hover-bg);
+	color: var(--navigation-item-hover-color);
+}
+
+:host(.is-active),
+:host(.is-active:hover) {
+	background-color: var(--navigation-item-active-bg);
+	color: var(--navigation-item-active-color);
+}
+
+/*:host(:focus-visible) {*/
+/*  outline: var(--outline-size) solid var(--outline-color);*/
+/*  outline-offset: var(--outline-offset);*/
+/*}*/
+
+:host .icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--navigation-item-icon-width);
+	color: var(--navigation-item-icon-color);
+	margin-right: 0.75rem;
+	margin-inline-start: -0.0625rem;
+}
+
+:host:not(.is-active):hover .icon {
+	color: var(--navigation-item-hover-icon-color);
+}
+
+:host(.is-active) .icon {
+	color: var(--navigation-item-active-icon-color);
+}
+
+:host .icon:empty {
+	display: none;
+}
+
+:host .toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition: var(--transition-transform);
+}
+
+:host(.is-active) .toggle {
+	transform: rotate(-180deg);
+}
+
+:host .toggle:empty {
+	display: none;
+}
+
+:host:has(.toggle:not(:empty)) {
+	padding-inline-end: var(--navigation-group-toggle-has-icon-padding-end);
+}

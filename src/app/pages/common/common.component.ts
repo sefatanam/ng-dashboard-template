@@ -11,7 +11,6 @@ import { HeaderComponent } from '../../@app/header/header.component';
 import { SidebarComponent } from '../../@app/sidebar/sidebar.component';
 
 @Component({
-	selector: 'app-common',
 	standalone: true,
 	imports: [
 		RouterOutlet,

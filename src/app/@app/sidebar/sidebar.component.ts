@@ -20,6 +20,10 @@ export interface NavItem {
 	imports: [MatIcon, RouterLink, NavigationModule, MatRipple, ToolbarComponent, OrderByPipe],
 	templateUrl: './sidebar.component.html',
 	styleUrl: './sidebar.component.scss',
+	host: {
+		// eslint-disable-next-line prettier/prettier
+		class: 'sidebar',
+	},
 })
 export class SidebarComponent implements OnInit {
 	router = inject(Router);

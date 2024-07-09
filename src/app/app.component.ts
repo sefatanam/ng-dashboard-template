@@ -1,8 +1,9 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 import { PageLoadingBarComponent } from '../../projects/components/src';
 
+import { isPlatformBrowser } from '@angular/common';
 import { ScreenLoaderService } from '../../projects/components/src/lib/_services/screen-loader.service';
 import { ThemeManagerService } from '../../projects/components/src/lib/_services/theme-manager.service';
 import { ScreenLoaderComponent } from './@app/screen-loader/screen-loader.component';
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit {
 	loadingText = signal('Application Loading');
 	pageLoaded = signal(false);
 	private _router = inject(Router);
+	private _platformId = inject(PLATFORM_ID);
 
 	ngOnInit(): void {
 		this._router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
@@ -32,6 +34,11 @@ export class AppComponent implements OnInit {
 				this.pageLoaded.set(true);
 			}, 3000);
 		});
+		if (isPlatformBrowser(this._platformId)) {
+			setTimeout(() => {
+				this.loadingText.set('Initializing Modules');
+			}, 1500);
+		}
 		this._themeManager.setColorScheme(this._themeManager.getPreferredColorScheme());
 	}
 }

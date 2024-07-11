@@ -1,0 +1,19 @@
+:host {
+	@apply block;
+}
+
+:host:not([class*='w-']) {
+	@apply w-px;
+}
+
+:host:not([class*='bg-']) {
+	@apply bg-neutral-300;
+}
+
+:host:not([class*='h-']) {
+	@apply h-4;
+}
+
+:host-context(html.dark):not([class*='dark:bg-']) {
+	@apply bg-neutral-variant-800;
+}

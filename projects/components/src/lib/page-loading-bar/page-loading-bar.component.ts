@@ -17,9 +17,9 @@ import {
 	NavigationStart,
 	Router,
 } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { timer } from 'rxjs/internal/observable/timer';
 import { map, take } from 'rxjs/operators';
-import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'lib-page-loading-bar',
@@ -27,7 +27,7 @@ import { Subscription } from 'rxjs';
 	standalone: true,
 	imports: [NgIf, MatProgressBar],
 	templateUrl: './page-loading-bar.component.html',
-	styleUrl: './page-loading-bar.component.css',
+	styleUrl: './page-loading-bar.component.scss',
 	host: {
 		// eslint-disable-next-line prettier/prettier
     'class': 'page-loading-bar',

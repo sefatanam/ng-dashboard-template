@@ -65,6 +65,49 @@ export class SidebarComponent implements OnInit {
 				},
 			],
 		},
+		{
+			id: 'auth',
+			type: 'group',
+			icon: 'lock',
+			name: 'Auth',
+			children: [
+				{
+					type: 'link',
+					name: 'Sign In',
+					link: '/auth/sign-in',
+				},
+				{
+					type: 'link',
+					name: 'Sign Up',
+					link: '/auth/signup',
+				},
+				{
+					type: 'link',
+					name: 'Forgot Password',
+					link: '/auth/forgot-password',
+				},
+				{
+					type: 'link',
+					name: 'Password Reset',
+					link: '/auth/password-reset',
+				},
+				{
+					type: 'link',
+					name: 'Set New Password',
+					link: '/auth/set-new-password',
+				},
+				{
+					type: 'link',
+					name: 'Done',
+					link: '/auth/done',
+				},
+				{
+					type: 'link',
+					name: 'Create Account',
+					link: '/auth/create-account',
+				},
+			],
+		},
 	];
 	navItemLinks: NavItem[] = [];
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any

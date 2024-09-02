@@ -14,7 +14,6 @@ cd ng-dashboard-template
 Install dependencies:
 
 ```bash
-Copy code
 npm install
 ```
 Run the application:
